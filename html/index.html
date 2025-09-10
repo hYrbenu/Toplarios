@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace Tóplarios</title>
+    <link rel="stylesheet" href="../css/style.css">
+    
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+                <div class="logo">
+                    <h1>Tóplarios</h1>
+
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a href="#Incio" class="nav-link">Incio</a></li>
+                    <li class="nav-item"><a href="#produtos" class="nav-link">Produtos</a></li>
+                    <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">🛒</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">👤</a></li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Bem-Vindo Ao Um Projeto Escolar Sobre Cerâmica Marajoara</h1>
+            <p>Descubra Um Pouco Da Nossa Cultura Paraense Atráves Da Arte</p>
+
+            <a href="#produtos" class="btn">Ver Produtos</a>
+
+        </div>
+    </section>
+
+    <section class="products" id="produtos">
+        <div class="container">
+            <h2 class="selection-title">Produtos a Venda</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../img/Vaso-em-ceramica-Marajoara-Vermelho---29x17-cm_0.webp" alt="Vaso Marajoara" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Vaso</h3>
+                        <p class="product-description">Peça artesanal em cerâmica inspirada na cultura indígena da Ilha de Marajó. Com grafismos autênticos e acabamento único, o Vaso Marajoara une história,
+                             beleza e tradição, trazendo elegância e identidade cultural para qualquer ambiente.</p>
+                        <button class="add-to-cart">Adicionar ao carrinho </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../img/Prato-Marajoara-de-parede-redondo-com-ondas_0.webp"Prato Cerâmica" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Pratos</h3>
+                        <p class="product-description">Prato artesanal em cerâmica inspirado na cultura indígena da Ilha de Marajó. Com grafismos marajoaras e acabamento único, é uma peça decorativa que valoriza história,
+                             tradição e beleza em qualquer ambiente.</p>
+                        <button class="add-to-cart">Adicionar ao carrinho </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="../img/Tartaruga-em-ceramica-Marajoara-cor-Marrom_0.webp" alt="Prato Cerâmica" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Bixos de Cerâmica</h3>
+                        <p class="product-description">Escultura artesanal em cerâmica inspirada nos grafismos e símbolos da cultura indígena marajoara. O Bixo Marajoara representa a riqueza ancestral da Ilha de Marajó e é perfeito para decoração,
+                             unindo arte, história e identidade cultural em uma peça única.</p>
+                        <button class="add-to-cart">Adicionar ao carrinho </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero" id="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre</h2>
+            <p class="section-description">Somos um marketplace dedicado a promover e vender produtos artesanais inspirados na cultura indígena da Ilha de Marajó. Nosso objetivo é valorizar a rica tradição marajoara, oferecendo peças únicas que combinam história, arte e funcionalidade. Cada produto é cuidadosamente selecionado para garantir autenticidade e qualidade, conectando você com a essência cultural dessa região fascinante do Brasil.</p>
+            <img src="../img/14b4f412-c1a4-4665-bb13-f28e56b77e38.jpg" alt="Cerâmica Marajoara" style="width:150%;max-width:500px;margin:30px auto 0;display:block;border-radius:12px;">
+        </div>
+    </section>
+
+    <script>
+  document.querySelectorAll('.add-to-cart').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      alert('Produto adicionado ao carrinho!');
+    });
+  });
+</script>
+</body>
+<main></main>
+</html>
