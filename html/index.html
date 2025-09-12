@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketplace Tóplarios</title>
     <link rel="stylesheet" href="../css/style.css">
-    
+    <link rel="icon" type="image/png" href="../img/icons8-vaso-antigo-quill-16.png">
 </head>
 <body>
     <header>
@@ -15,12 +15,17 @@
 
             <div class="nav-list">
                 <ul>
-                    <li class="nav-item"><a href="#Incio" class="nav-link">Incio</a></li>
+                    <li class="nav-item"><a href="../html/index.html" class="nav-link">Incio</a></li>
                     <li class="nav-item"><a href="#produtos" class="nav-link">Produtos</a></li>
                     <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">🛒</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">👤</a></li>
+                    <li class="nav-item"><a href="#contato-comentarios" class="nav-link">Comentários</a></li>
+                    <li class="nav-item">
+  <a href="#" class="nav-link" id="cart-link">
+    🛒
+    <span class="cart-count">0</span>
+  </a>
+</li>
+                    <li class="nav-item"><a href="../html/login.html" class="nav-link">👤</a></li>
                 </ul>
                 </div>
             </div>
@@ -81,17 +86,79 @@
 
     <section class="hero" id="sobre">
         <div class="container">
-            <h2 class="section-title">Sobre</h2>
-            <p class="section-description">Somos um marketplace dedicado a promover e vender produtos artesanais inspirados na cultura indígena da Ilha de Marajó. Nosso objetivo é valorizar a rica tradição marajoara, oferecendo peças únicas que combinam história, arte e funcionalidade. Cada produto é cuidadosamente selecionado para garantir autenticidade e qualidade, conectando você com a essência cultural dessa região fascinante do Brasil.</p>
-            <img src="../img/14b4f412-c1a4-4665-bb13-f28e56b77e38.jpg" alt="Cerâmica Marajoara" style="width:150%;max-width:500px;margin:30px auto 0;display:block;border-radius:12px;">
+            <div class="sobre-box">
+                <h2 class="section-title">Sobre</h2>
+                <p class="section-description">Somos um marketplace dedicado a promover e vender produtos artesanais inspirados na cultura indígena da Ilha de Marajó. Nosso objetivo é valorizar a rica tradição marajoara, oferecendo peças únicas que combinam história, arte e funcionalidade. Cada produto é cuidadosamente selecionado para garantir autenticidade e qualidade, conectando você com a essência cultural dessa região fascinante do Brasil.</p>
+                <img src="../img/14b4f412-c1a4-4665-bb13-f28e56b77e38.jpg" alt="Cerâmica Marajoara" style="width:150%;max-width:500px;margin:30px auto 0;display:block;border-radius:12px;">
+            </div>
         </div>
     </section>
 
+    <section id="contato-comentarios" class="container">
+    <h2 class="section-title">Comentários dos Usuários</h2>
+    <form id="comentario-form" class="comentario-form">
+        <div class="comentario-campos">
+            <div class="comentario-campo">
+                <label for="nome-comentario">Seu nome</label>
+                <input type="text" id="nome-comentario" placeholder="Seu nome" required>
+            </div>
+            <div class="comentario-campo">
+                <label for="texto-comentario">Escreva seu comentário</label>
+                <textarea id="texto-comentario" placeholder="Escreva seu comentário" required></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn">Enviar</button>
+    </form>
+    <ul id="lista-comentarios">
+        <!-- Comentários aparecerão aqui -->
+    </ul>
+</section>
+
     <script>
+  let cartCount = 0;
+  const cartCountEl = document.querySelector('.cart-count');
   document.querySelectorAll('.add-to-cart').forEach(function(btn) {
     btn.addEventListener('click', function() {
+      cartCount++;
+      cartCountEl.textContent = cartCount;
+      cartCountEl.classList.add('animate');
+      setTimeout(() => cartCountEl.classList.remove('animate'), 400);
       alert('Produto adicionado ao carrinho!');
     });
+  });
+
+  // Comentários dos usuários
+  const comentarioForm = document.getElementById('comentario-form');
+  const listaComentarios = document.getElementById('lista-comentarios');
+
+  comentarioForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nome = document.getElementById('nome-comentario').value.trim();
+    const texto = document.getElementById('texto-comentario').value.trim();
+    if (nome && texto) {
+      const li = document.createElement('li');
+      li.className = 'comentario-item';
+      li.innerHTML = `<strong>${nome}:</strong> <span>${texto}</span>`;
+      listaComentarios.prepend(li);
+      comentarioForm.reset();
+    }
+  });
+
+  document.querySelectorAll('a.nav-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      const href = link.getAttribute('href');
+      if (href && !href.startsWith('#')) {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(function() {
+          window.location.href = href;
+        }, 500);
+      }
+    });
+  });
+
+  window.addEventListener('pageshow', function() {
+    document.body.classList.add('fade-in');
   });
 </script>
 </body>
